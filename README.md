@@ -20,3 +20,5 @@ After that, you can just work with the weather in a callback function:
         weather.sunrise;         //Date() object with time of sunrise
         weather.sunset;          //Date() object with time of sunset
     }
+
+###[More Information...](http://howderek.github.io/weatherman)
