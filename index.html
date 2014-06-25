@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <title>Weatherman.js</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <br>
+    <div class="main container">
+        <div class="row">
+            <div class="col-lg-10">
+                <h1>weatherman.js</h1>
+                <h5>a 2KB uncompressed dependency-free library by <a href="http://howderek.com">Derek Howard</a> for getting the weather from <a href="http://openweathermap.org/">OpenWeatherMap</a> (you'll need an API key)</h5>
+            </div>
+            <div class="col-lg-2">
+                <h1><a class="btn btn-lg btn-primary" href="weatherman.js">Download</a></h1>
+            </div>
+        </div>
+        <hr>
+        <h3>How minimal is it?</h3>
+        <p>You can start interacting with weather data after one line of code:</p>
+        <pre><code class="prettyprint">var weatherman = new Weatherman('YOUR_API_KEY_HERE', 'someplace', 'imperial/metric', callback);</code></pre>
+        <p>After that, you can interact with the data in two ways.</p>
+        <ol>
+            <li>
+                <p>Using the weather object (must wait for AJAX to complete):</p>
+                <pre><code class="prettyprint">alert(weatherman.weather.temperature);</code></pre>
+            </li>
+            <li>
+                <p>Using the argument passed to the callback:</p>
+                <pre><code class="prettyprint">function callback(weather) {
+    alert(weather.humidity);
+}</code></pre>
+            </li>
+        </ol>
+        <hr>
+        <h3>Full API</h3>
+        <pre><code class="prettyprint">function callback(weather) {
+    weather.conditions;      //one word description of current weather (clear, clouds, snow, rain)
+    weather.description;     //brief description of what's going on
+    weather.temperature;     //current temperature (units chosen in constructor)
+    weather.humidity;        //current humidity
+    weather.wind.speed;      //wind speed in mps
+    weather.wind.direction;  //wind direction in dergees
+    weather.cloudCoverage;   //percentage of sky covered in cluds
+    weather.sunrise;         //Date() object with time of sunrise
+    weather.sunset;          //Date() object with time of sunset
+}
+//create the object
+var weatherman = new Weatherman('YOUR_API_KEY_HERE', 'someplace', 'imperial/metric', callback)
+//re-fetch the weather
+weatherman.retrieveWeather();</code></pre>
+        <hr>
+        <h3>Example Usage</h3>
+        <p><strong>Weather in Columbia, MO:</strong>  <span id="conditions"></span>
+        </p>
+        <pre><code class="prettyprint">//function to show the data given by Weatherman
+function weatherDisplay(weather) {
+    document.getElementById('conditions').innerHTML = weather.conditions + ', ' + weather.temperature + '&deg;F';
+}
+//create a Weatherman object
+var weatherman = new Weatherman('YOUR_API_KEY_HERE', 'Columbia, MO', 'imperial', weatherDisplay);</code></pre>
+        <br>
+        <br>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+        <script src="weatherman.js" type="application/javascript"></script>
+        <script src="script.js" type="application/javascript"></script>
+</body>
+
+</html>
