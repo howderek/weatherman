@@ -2,9 +2,11 @@ weatherman
 ==========
 small dependency-free javascript library for getting the weather from [OpenWeatherMap](http://openweathermap.org/)
 
-*Usage
-First, create a Weatherman object
-`var weatherman = new Weatherman('YOUR_API_KEY_HERE', 'someplace', 'imperial/metric', callback)`
+###Usage
+First, create a Weatherman object:
+
+    var weatherman = new Weatherman('YOUR_API_KEY_HERE', 'someplace', 'imperial/metric', callback)
+    
 After that, you can just work with the weather in a callback function:
 
     function callback(weather) {
