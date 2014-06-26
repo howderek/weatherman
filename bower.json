@@ -1,0 +1,11 @@
+{
+    "name": "weatherman",
+    "version": "1.0",
+    "main": "weatherman.js",
+    "ignore": [
+        ".gitignore",
+        ".gitattributes",
+        "bower.json",
+        "README.md"
+    ]
+}
