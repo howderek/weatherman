@@ -2,6 +2,7 @@ weatherman
 ==========
 small dependency-free javascript library for getting the weather from [OpenWeatherMap](http://openweathermap.org/)
 
+`bower install weatherman`
 ###Usage
 First, create a Weatherman object:
 
